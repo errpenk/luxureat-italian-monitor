@@ -35,18 +35,35 @@ function renderLineChart(id, series, label) {
   const max = Math.max(...(series || []).flatMap((item) => item.values), 1);
   const x = (index) => pad.left + (index * (width - pad.left - pad.right)) / Math.max(points - 1, 1);
   const y = (value) => height - pad.bottom - (value * (height - pad.top - pad.bottom)) / max;
-  const linePath = (values) => values.map((value, index) => `${index ? 'L' : 'M'} ${x(index)} ${y(value)}`).join(' ');
+  const linePath = (values) => values.map((value, index) => {
+    const currentX = x(index), currentY = y(value);
+    if (!index) return `M ${currentX} ${currentY}`;
+    const previousX = x(index - 1), previousY = y(values[index - 1]);
+    const control = (currentX - previousX) / 2;
+    return `C ${previousX + control} ${previousY}, ${currentX - control} ${currentY}, ${currentX} ${currentY}`;
+  }).join(' ');
   const grid = [0, .25, .5, .75, 1].map((ratio) => `<line x1="${pad.left}" x2="${width - pad.right}" y1="${y(max * ratio)}" y2="${y(max * ratio)}" class="chart-grid"/><text x="${pad.left - 10}" y="${y(max * ratio) + 5}" text-anchor="end" class="chart-axis">${Math.round(max * ratio)}</text>`).join('');
   const paths = (series || []).map((item) => `<path d="${linePath(item.values)}" class="chart-line" style="--series-color:${item.color}"/>`).join('');
   const dots = (series || []).flatMap((item) => item.values.map((value, index) => `<circle cx="${x(index)}" cy="${y(value)}" r="5" class="chart-dot" style="--series-color:${item.color}" data-label="${item.label}" data-index="${index}" data-value="${value}"/>`)).join('');
   const labels = (series?.[0]?.labels || []).map((item, index) => `<text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="chart-axis">${item}</text>`).join('');
   const legend = (series || []).map((item) => `<span><i style="background:${item.color}"></i>${item.label}</span>`).join('');
-  chart.innerHTML = `<div class="chart-caption"><strong>${label}</strong><span>${legend}</span></div><div class="chart-canvas"><svg viewBox="0 0 ${width} ${height}" role="img">${grid}${paths}${dots}${labels}</svg><div class="chart-tooltip" hidden></div></div>`;
+  const summary = (series || []).map((item) => `<span><i style="border-color:${item.color}"></i>${item.label} PV ${item.values.reduce((total, value) => total + Number(value || 0), 0)}</span>`).join('');
+  chart.innerHTML = `<div class="chart-caption"><strong>${label}</strong><span>${legend}</span></div><div class="chart-canvas"><svg viewBox="0 0 ${width} ${height}" role="img">${grid}<line class="chart-hover-line" x1="0" x2="0" y1="${pad.top}" y2="${height - pad.bottom}" hidden/>${paths}${dots}${labels}</svg><div class="chart-tooltip" hidden></div></div><div class="chart-summary">${summary}</div>`;
   const tooltip = chart.querySelector('.chart-tooltip');
-  chart.querySelectorAll('.chart-dot').forEach((dot) => {
-    const show = () => { tooltip.textContent = `${dot.dataset.label} · ${dot.dataset.value} PV`; tooltip.hidden = false; tooltip.style.left = `${(dot.cx.baseVal.value / width) * 100}%`; tooltip.style.top = `${(dot.cy.baseVal.value / height) * 100}%`; };
-    dot.addEventListener('mouseenter', show); dot.addEventListener('focus', show); dot.addEventListener('mouseleave', () => { tooltip.hidden = true; });
-  });
+  const hoverLine = chart.querySelector('.chart-hover-line');
+  const svg = chart.querySelector('svg');
+  const show = (event) => {
+    const rect = svg.getBoundingClientRect();
+    const index = Math.max(0, Math.min(points - 1, Math.round(((event.clientX - rect.left) / rect.width) * (points - 1))));
+    const values = (series || []).map((item) => `<div><i style="background:${item.color}"></i>${item.label}: ${item.values[index] ?? 0} PV</div>`).join('');
+    tooltip.innerHTML = `<strong>${series?.[0]?.labels?.[index] || ''}</strong>${values}`;
+    tooltip.hidden = false;
+    tooltip.style.left = `${(x(index) / width) * 100}%`;
+    tooltip.style.top = '32%';
+    hoverLine.setAttribute('x1', x(index)); hoverLine.setAttribute('x2', x(index)); hoverLine.hidden = false;
+  };
+  svg.addEventListener('mousemove', show);
+  svg.addEventListener('mouseleave', () => { tooltip.hidden = true; hoverLine.hidden = true; });
 }
 
 async function loadData() {
