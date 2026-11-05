@@ -17,12 +17,10 @@ function renderRanked(id, rows) {
   }));
 }
 function render(data) {
-  setMetric('updated-at', data.updatedAt ? new Date(data.updatedAt).toLocaleString('it-IT') : 'Non ancora sincronizzato');
   setMetric('today-pv', data.summary?.todayPv);
   setMetric('yesterday-pv', data.summary?.yesterdayPv);
   setMetric('week-pv', data.summary?.weekPv);
   setMetric('month-pv', data.summary?.monthPv);
-  renderRanked('sources', data.sources);
   renderRanked('pages', data.pages);
   if (data.daily?.length) {
     $('daily-chart').classList.remove('empty');
