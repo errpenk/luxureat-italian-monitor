@@ -80,3 +80,15 @@ $('login-form').addEventListener('submit', async (event) => {
   sessionStorage.setItem('luxureat-monitor-auth', '1');
   $('login').hidden = true; $('dashboard').hidden = false; loadData().catch(() => {});
 });
+
+$('sync-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const link = $('monitor-link').value.trim();
+  if (!link.startsWith('https://')) return;
+  sessionStorage.setItem('luxureat-monitor-link', link);
+  $('sync-status').textContent = '链接已提交。';
+  $('sync-status').hidden = false;
+});
+
+const savedLink = sessionStorage.getItem('luxureat-monitor-link');
+if (savedLink) $('monitor-link').value = savedLink;
