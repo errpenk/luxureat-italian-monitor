@@ -1,8 +1,32 @@
 {
-  "updatedAt": null,
-  "summary": {},
-  "daily": [],
-  "sources": [],
-  "pages": [],
-  "notice": "La sincronizzazione giornaliera non è ancora configurata."
+  "updatedAt": "2026-11-05T16:51:08Z",
+  "summary": {
+    "todayPv": 448,
+    "yesterdayPv": 82,
+    "weekPv": 565,
+    "monthPv": 565
+  },
+  "daily": [
+    {"date": "Oggi", "pv": 448},
+    {"date": "Ieri", "pv": 82},
+    {"date": "Due giorni fa", "pv": 24}
+  ],
+  "sources": [
+    {"label": "luxureat.cn/contact/", "value": 542},
+    {"label": "luxureat.cn/", "value": 21},
+    {"label": "luxureat.cn/about-us/", "value": 1}
+  ],
+  "pages": [
+    {"label": "luxureat.cn/", "value": 99},
+    {"label": "luxureat.cn/product/", "value": 50},
+    {"label": "luxureat.cn/about-us/", "value": 44},
+    {"label": "luxureat.cn/import-export-services/", "value": 41},
+    {"label": "luxureat.cn/cooperation/", "value": 30},
+    {"label": "luxureat.cn/certification/", "value": 25},
+    {"label": "luxureat.cn/recipe/", "value": 22},
+    {"label": "luxureat.cn/brand/", "value": 21},
+    {"label": "luxureat.cn/blog/", "value": 18},
+    {"label": "luxureat.cn/china-market-insights/", "value": 17}
+  ],
+  "notice": "Dati letti dal monitor SEO WordPress il 5 novembre 2026. Gli indirizzi IP non vengono pubblicati."
 }
