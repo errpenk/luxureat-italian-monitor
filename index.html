@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LuxurEat · Monitor SEO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="login" class="login-card" aria-labelledby="login-title">
+      <p class="eyebrow">LUXUREAT CHINA</p>
+      <h1 id="login-title">Monitor SEO</h1>
+      <p>Inserisci la password per visualizzare il rapporto giornaliero.</p>
+      <form id="login-form">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button type="submit">Accedi</button>
+        <p id="login-error" class="error" role="alert" hidden>Password non valida.</p>
+      </form>
+    </section>
+
+    <section id="dashboard" hidden>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">LUXUREAT CHINA</p>
+          <h1>Monitor SEO e traffico</h1>
+          <p class="muted">Panoramica italiana dei dati raccolti dal pannello WordPress.</p>
+        </div>
+        <div class="updated">Ultimo aggiornamento<br><strong id="updated-at">—</strong></div>
+      </header>
+      <div id="notice" class="notice" hidden></div>
+      <section class="metrics" aria-label="Indicatori principali">
+        <article><span>Visite oggi</span><strong id="today-pv">—</strong></article>
+        <article><span>Visite ieri</span><strong id="yesterday-pv">—</strong></article>
+        <article><span>Visite questa settimana</span><strong id="week-pv">—</strong></article>
+        <article><span>Visite questo mese</span><strong id="month-pv">—</strong></article>
+      </section>
+      <section class="grid">
+        <article class="panel wide"><div class="panel-head"><h2>Andamento giornaliero</h2><span>PV</span></div><div id="daily-chart" class="chart empty">Dati in attesa della prima sincronizzazione.</div></article>
+        <article class="panel"><div class="panel-head"><h2>Fonti principali</h2><span>PV</span></div><ol id="sources" class="ranked"><li>Nessun dato disponibile.</li></ol></article>
+        <article class="panel"><div class="panel-head"><h2>Pagine più visitate</h2><span>PV</span></div><ol id="pages" class="ranked"><li>Nessun dato disponibile.</li></ol></article>
+      </section>
+      <footer>Rapporto interno · I dati vengono aggiornati automaticamente una volta al giorno.</footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
