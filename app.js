@@ -1,4 +1,5 @@
 const PASSWORD_SHA256 = 'f16ba757861b8f2bf1a99438dcf7a080869ef9a4ab9f52517e4f890c1892794d';
+const SYNC_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx1QrIUmTgO1K7gxTEBNq4_V41HdkJONC1ZT86xXna50ufxKI2HicvhIKnqywjq5oFn/exec';
 const $ = (id) => document.getElementById(id);
 
 async function sha256(value) {
@@ -86,8 +87,16 @@ $('sync-form').addEventListener('submit', (event) => {
   const link = $('monitor-link').value.trim();
   if (!link.startsWith('https://')) return;
   sessionStorage.setItem('luxureat-monitor-link', link);
-  $('sync-status').textContent = '链接已提交。';
+  $('sync-status').textContent = '链接已提交，正在等待同步。';
   $('sync-status').hidden = false;
+  fetch(SYNC_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'text/plain;charset=utf-8'},
+    body: JSON.stringify({url: link})
+  }).catch(() => {
+    $('sync-status').textContent = '提交失败，请稍后重试。';
+  });
 });
 
 const savedLink = sessionStorage.getItem('luxureat-monitor-link');
