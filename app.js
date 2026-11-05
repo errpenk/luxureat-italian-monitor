@@ -48,7 +48,7 @@ function renderLineChart(id, series, label) {
   const labels = (series?.[0]?.labels || []).map((item, index) => `<text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="chart-axis">${item}</text>`).join('');
   const legend = (series || []).map((item) => `<span><i style="background:${item.color}"></i>${item.label}</span>`).join('');
   const summary = (series || []).map((item) => `<span><i style="border-color:${item.color}"></i>${item.label} PV ${item.values.reduce((total, value) => total + Number(value || 0), 0)}</span>`).join('');
-  chart.innerHTML = `<div class="chart-caption"><strong>${label}</strong><span>${legend}</span></div><div class="chart-canvas"><svg viewBox="0 0 ${width} ${height}" role="img">${grid}<line class="chart-hover-line" x1="0" x2="0" y1="${pad.top}" y2="${height - pad.bottom}" hidden/>${paths}${dots}${labels}</svg><div class="chart-tooltip" hidden></div></div><div class="chart-summary">${summary}</div>`;
+  chart.innerHTML = `<div class="chart-caption"><strong>${label}</strong><span>${legend}</span></div><div class="chart-canvas"><svg viewBox="0 0 ${width} ${height}" role="img"><rect class="chart-hit-area" x="${pad.left}" y="${pad.top}" width="${width - pad.left - pad.right}" height="${height - pad.top - pad.bottom}"/>${grid}<line class="chart-hover-line" x1="0" x2="0" y1="${pad.top}" y2="${height - pad.bottom}" hidden/>${paths}${dots}${labels}</svg><div class="chart-tooltip" hidden></div></div><div class="chart-summary">${summary}</div>`;
   const tooltip = chart.querySelector('.chart-tooltip');
   const hoverLine = chart.querySelector('.chart-hover-line');
   const svg = chart.querySelector('svg');
@@ -58,8 +58,8 @@ function renderLineChart(id, series, label) {
     const values = (series || []).map((item) => `<div><i style="background:${item.color}"></i>${item.label}: ${item.values[index] ?? 0} PV</div>`).join('');
     tooltip.innerHTML = `<strong>${series?.[0]?.labels?.[index] || ''}</strong>${values}`;
     tooltip.hidden = false;
-    tooltip.style.left = `${(x(index) / width) * 100}%`;
-    tooltip.style.top = '32%';
+    tooltip.style.left = `${Math.max(14, Math.min(86, (x(index) / width) * 100))}%`;
+    tooltip.style.top = '4%';
     hoverLine.setAttribute('x1', x(index)); hoverLine.setAttribute('x2', x(index)); hoverLine.hidden = false;
   };
   svg.addEventListener('mousemove', show);
