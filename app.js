@@ -22,11 +22,30 @@ function render(data) {
   setMetric('week-pv', data.summary?.weekPv);
   setMetric('month-pv', data.summary?.monthPv);
   renderRanked('pages', data.pages);
-  if (data.daily?.length) {
-    $('daily-chart').classList.remove('empty');
-    $('daily-chart').textContent = data.daily.map((row) => `${row.date}: ${row.pv}`).join('  ·  ');
-  }
-  if (data.notice) { $('notice').textContent = data.notice; $('notice').hidden = false; }
+  renderChart(data.daily, data.summary);
+  document.querySelectorAll('[data-chart-range]').forEach((tab) => tab.addEventListener('click', () => {
+    document.querySelectorAll('[data-chart-range]').forEach((item) => item.classList.toggle('is-active', item === tab));
+    const rows = tab.dataset.chartRange === 'summary'
+      ? [{date: 'Oggi', pv: data.summary?.todayPv}, {date: 'Settimana', pv: data.summary?.weekPv}, {date: 'Mese', pv: data.summary?.monthPv}]
+      : data.daily;
+    renderChart(rows, data.summary);
+  }));
+}
+
+function renderChart(daily, summary) {
+  const chart = $('daily-chart');
+  const rows = daily?.length ? daily : [{date: 'Oggi', pv: summary?.todayPv || 0}];
+  const max = Math.max(...rows.map((row) => Number(row.pv) || 0), 1);
+  chart.replaceChildren(...rows.map((row) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'chart-bar';
+    button.style.setProperty('--bar-size', `${Math.max(8, ((Number(row.pv) || 0) / max) * 100)}%`);
+    button.innerHTML = `<span class="bar-value">${row.pv}</span><span class="bar-fill"></span><span class="bar-label">${row.date}</span>`;
+    button.addEventListener('click', () => { $('chart-detail').textContent = `${row.date}: ${row.pv} visite`; });
+    return button;
+  }));
+  $('chart-detail').textContent = `${rows[0].date}: ${rows[0].pv} visite`;
 }
 
 async function loadData() {
