@@ -1,14 +1,14 @@
 
 {
-  "updatedAt": "2026-11-06T10:58:49Z",
+  "updatedAt": "2026-11-06T14:01:12Z",
   "summary": {
-    "todayPv": 132,
+    "todayPv": 141,
     "yesterdayPv": 448,
-    "weekPv": 686,
+    "weekPv": 695,
     "monthPv": null
   },
   "daily": [
-    {"date": "Oggi", "pv": 132},
+    {"date": "Oggi", "pv": 141},
     {"date": "Ieri", "pv": 448},
     {"date": "Due giorni fa", "pv": 82}
   ],
@@ -17,7 +17,7 @@
       "label": "Oggi",
       "color": "#2386ff",
       "labels": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-      "values": [28, 43, 18, 11, 14, 10, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0]
+      "values": [28, 43, 18, 11, 14, 10, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 9, 0, 0, 0, 0]
     },
     {
       "label": "Ieri",
@@ -37,7 +37,7 @@
       "label": "Questa settimana",
       "color": "#2386ff",
       "labels": ["1", "2", "3", "4", "5", "6", "7"],
-      "values": [0, 24, 82, 448, 132, 0, 0]
+      "values": [0, 24, 82, 448, 141, 0, 0]
     },
     {
       "label": "Settimana scorsa",
@@ -54,11 +54,16 @@
   ],
   "sources": [],
   "pages": [
-    {"label": "luxureat.cn/", "value": 169},
+    {"label": "luxureat.cn/", "value": 172},
     {"label": "luxureat.cn/product/", "value": 58},
     {"label": "luxureat.cn/about-us/", "value": 53},
-    {"label": "luxureat.cn/import-export-services/", "value": 43},
-    {"label": "luxureat.cn/cooperation/", "value": 32}
+    {"label": "luxureat.cn/import-export-services/", "value": 44},
+    {"label": "luxureat.cn/cooperation/", "value": 33},
+    {"label": "luxureat.cn/certification/", "value": 29},
+    {"label": "luxureat.cn/recipe/", "value": 27},
+    {"label": "luxureat.cn/brand/", "value": 23},
+    {"label": "luxureat.cn/china-market-insights/", "value": 20},
+    {"label": "luxureat.cn/blog/", "value": 20}
   ],
-  "notice": "Dati aggiornati sulla base delle schermate del monitor WordPress del 6 novembre 2026. PV indica le visualizzazioni di pagina, non i visitatori unici. La distribuzione oraria di oggi è stimata dal grafico; i dati orari di ieri e dell'altro ieri provengono dal precedente report. Il totale mensile e le fonti di traffico non sono disponibili. I valori pari a zero delle settimane precedenti non sono verificati. Gli indirizzi IP non vengono pubblicati."
+  "notice": "Dati aggiornati il 6 novembre 2026 alle 15:01 (ora italiana), sulla base delle schermate del monitor WordPress. PV indica le visualizzazioni di pagina, non i visitatori unici. I valori orari di oggi sono stimati dal grafico e non rappresentano dati orari verificati. Il totale mensile e le fonti di traffico non sono disponibili. Gli zeri delle settimane precedenti non sono verificati. Gli indirizzi IP non vengono pubblicati."
 }
