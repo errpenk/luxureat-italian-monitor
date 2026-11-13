@@ -1,49 +1,245 @@
+
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>LuxurEat · Monitor SEO</title>
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
   <main class="shell">
-    <section id="login" class="login-card" aria-labelledby="login-title">
-      <img class="brand-logo" src="https://luxureat.cn/wp-content/themes/luxureat-wordpress-theme/assets/media/brand/luxureat-logo.png" alt="LuxurEat">
+
+    <!-- LOGIN -->
+    <section
+      id="login"
+      class="login-card"
+      aria-labelledby="login-title"
+    >
+      <img
+        class="brand-logo"
+        src="https://luxureat.cn/wp-content/themes/luxureat-wordpress-theme/assets/media/brand/luxureat-logo.png"
+        alt="LuxurEat"
+      >
+
       <h1 id="login-title">Monitor SEO</h1>
-      <p>Inserisci la password per visualizzare il rapporto giornaliero.</p>
+
+      <p>
+        Inserisci la password per visualizzare
+        il rapporto giornaliero.
+      </p>
+
       <form id="login-form">
         <label for="password">Password</label>
-        <input id="password" type="password" autocomplete="current-password" required>
+
+        <input
+          id="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
         <button type="submit">Accedi</button>
-        <p id="login-error" class="error" role="alert" hidden>Password non valida.</p>
+
+        <p
+          id="login-error"
+          class="error"
+          role="alert"
+          hidden
+        >
+          Password non valida.
+        </p>
       </form>
     </section>
 
+
+    <!-- DASHBOARD -->
     <section id="dashboard" hidden>
+
+      <!-- HEADER -->
       <header class="topbar">
-        <img class="brand-logo" src="https://luxureat.cn/wp-content/themes/luxureat-wordpress-theme/assets/media/brand/luxureat-logo.png" alt="LuxurEat">
+
+        <img
+          class="brand-logo"
+          src="https://luxureat.cn/wp-content/themes/luxureat-wordpress-theme/assets/media/brand/luxureat-logo.png"
+          alt="LuxurEat"
+        >
+
         <form id="sync-form" class="sync-form">
+
           <div class="sync-fields">
-            <input id="monitor-link" type="url" placeholder="https://luxureat.cn/wp-admin/..." required>
-            <button type="submit">SUBMIT</button>
+
+            <input
+              id="monitor-link"
+              type="url"
+              placeholder="https://luxureat.cn/wp-admin/..."
+              required
+            >
+
+            <button type="submit">
+              SUBMIT
+            </button>
+
           </div>
-          <p id="sync-status" class="sync-status" role="status" hidden></p>
+
+          <p
+            id="sync-status"
+            class="sync-status"
+            role="status"
+            hidden
+          ></p>
+
         </form>
       </header>
-      <section class="metrics" aria-label="Indicatori principali">
-        <article><span>Visite oggi</span><strong id="today-pv">—</strong></article>
-        <article><span>Visite ieri</span><strong id="yesterday-pv">—</strong></article>
-        <article><span>Visite questa settimana</span><strong id="week-pv">—</strong></article>
-        <article><span>Visite questo mese</span><strong id="month-pv">—</strong></article>
+
+
+      <!-- MAIN METRICS -->
+      <section
+        class="metrics"
+        aria-label="Indicatori principali"
+      >
+
+        <article>
+          <span>Visite oggi</span>
+          <strong id="today-pv">—</strong>
+        </article>
+
+        <article>
+          <span>Visite ieri</span>
+          <strong id="yesterday-pv">—</strong>
+        </article>
+
+        <article>
+          <span>Visite questa settimana</span>
+          <strong id="week-pv">—</strong>
+        </article>
+
+        <article>
+          <span>Visite questo mese</span>
+          <strong id="month-pv">—</strong>
+        </article>
+
       </section>
+
+
+      <!-- EXISTING TRAFFIC DASHBOARD -->
       <section class="grid">
-        <article class="panel wide"><div class="panel-head"><h2>Andamento del traffico</h2><span>PV</span></div><div id="daily-chart" class="line-chart" aria-label="Traffico PV nelle ultime 24 ore"></div><div id="weekly-chart" class="line-chart" aria-label="Traffico PV negli ultimi 7 giorni"></div></article>
-        <article class="panel"><div class="panel-head"><h2>Pagine più visitate</h2><span>PV</span></div><ol id="pages" class="ranked"><li>Nessun dato disponibile.</li></ol></article>
+
+        <article class="panel wide">
+
+          <div class="panel-head">
+            <h2>Andamento del traffico</h2>
+            <span>PV</span>
+          </div>
+
+          <div
+            id="daily-chart"
+            class="line-chart"
+            aria-label="Traffico PV nelle ultime 24 ore"
+          ></div>
+
+          <div
+            id="weekly-chart"
+            class="line-chart"
+            aria-label="Traffico PV negli ultimi 7 giorni"
+          ></div>
+
+        </article>
+
+
+        <article class="panel">
+
+          <div class="panel-head">
+            <h2>Pagine più visitate</h2>
+            <span>PV</span>
+          </div>
+
+          <ol id="pages" class="ranked">
+            <li>Nessun dato disponibile.</li>
+          </ol>
+
+        </article>
+
       </section>
+
+
+      <!-- GEOGRAPHIC ANALYSIS -->
+      <section
+        class="geo-section"
+        aria-label="Analisi geografica del traffico"
+      >
+
+        <div class="geo-heading">
+          <h2>Analisi geografica del traffico</h2>
+          <p>
+            Distribuzione delle visite per Paese
+          </p>
+        </div>
+
+
+        <!-- REGION TABLE -->
+        <article class="panel geo-panel">
+
+          <div class="panel-head">
+            <h2>Traffico per Paese</h2>
+            <span>Share of Records</span>
+          </div>
+
+          <div id="geo-table"></div>
+
+        </article>
+
+
+        <!-- REGION BAR CHART -->
+        <article class="panel geo-panel">
+
+          <div class="panel-head">
+            <h2>Distribuzione del traffico</h2>
+            <span>%</span>
+          </div>
+
+          <div
+            id="geo-bar"
+            aria-label="Percentuale delle visite per Paese"
+          ></div>
+
+        </article>
+
+
+        <!-- WORLD MAP -->
+        <article class="panel geo-panel">
+
+          <div class="panel-head">
+            <h2>Mappa geografica</h2>
+            <span>Share of Records</span>
+          </div>
+
+          <div
+            id="geo-map"
+            aria-label="Mappa geografica delle visite"
+          ></div>
+
+        </article>
+
+      </section>
+
     </section>
+
   </main>
+
+
+  <!-- PLOTLY -->
+  <script src="https://cdn.plot.ly/plotly-3.3.0.min.js"></script>
+
+  <!-- EXISTING DASHBOARD -->
   <script src="app.js"></script>
+
+  <!-- GEOGRAPHIC ANALYSIS -->
+  <script src="geo.js"></script>
+
 </body>
 </html>
