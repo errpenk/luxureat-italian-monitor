@@ -1,35 +1,35 @@
 
 {
-  "updatedAt": "2026-11-06T14:01:12Z",
+  "updatedAt": "2026-11-13T15:55:00Z",
   "summary": {
-    "todayPv": 141,
-    "yesterdayPv": 448,
-    "weekPv": 695,
+    "todayPv": 34,
+    "yesterdayPv": 216,
+    "weekPv": 375,
     "monthPv": null
   },
   "daily": [
-    {"date": "Oggi", "pv": 141},
-    {"date": "Ieri", "pv": 448},
-    {"date": "Due giorni fa", "pv": 82}
+    {"date": "Oggi", "pv": 34},
+    {"date": "Ieri", "pv": 216},
+    {"date": "Due giorni fa", "pv": 125}
   ],
   "dailySeries": [
     {
       "label": "Oggi",
       "color": "#2386ff",
       "labels": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-      "values": [28, 43, 18, 11, 14, 10, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 9, 0, 0, 0, 0]
+      "values": [13, 0, 0, 13, 0, 2, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0]
     },
     {
       "label": "Ieri",
       "color": "#12d8b0",
       "labels": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-      "values": [24, 35, 17, 12, 13, 30, 7, 1, 0, 1, 0, 2, 0, 0, 0, 0, 33, 117, 56, 28, 17, 17, 0, 38]
+      "values": [72, 29, 0, 1, 0, 15, 0, 0, 12, 0, 1, 0, 1, 0, 2, 58, 4, 0, 0, 4, 3, 0, 0, 12]
     },
     {
       "label": "Due giorni fa",
       "color": "#ff5a4d",
       "labels": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-      "values": [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 1, 0, 0, 0, 15, 1, 45]
+      "values": [0, 38, 9, 7, 0, 0, 1, 0, 0, 0, 7, 0, 1, 7, 0, 0, 0, 0, 1, 5, 3, 6, 8, 32]
     }
   ],
   "weeklySeries": [
@@ -37,7 +37,7 @@
       "label": "Questa settimana",
       "color": "#2386ff",
       "labels": ["1", "2", "3", "4", "5", "6", "7"],
-      "values": [0, 24, 82, 448, 141, 0, 0]
+      "values": [0, 0, 125, 216, 34, 0, 0]
     },
     {
       "label": "Settimana scorsa",
@@ -54,16 +54,11 @@
   ],
   "sources": [],
   "pages": [
-    {"label": "luxureat.cn/", "value": 172},
-    {"label": "luxureat.cn/product/", "value": 58},
-    {"label": "luxureat.cn/about-us/", "value": 53},
-    {"label": "luxureat.cn/import-export-services/", "value": 44},
-    {"label": "luxureat.cn/cooperation/", "value": 33},
-    {"label": "luxureat.cn/certification/", "value": 29},
-    {"label": "luxureat.cn/recipe/", "value": 27},
-    {"label": "luxureat.cn/brand/", "value": 23},
-    {"label": "luxureat.cn/china-market-insights/", "value": 20},
-    {"label": "luxureat.cn/blog/", "value": 20}
+    {"label": "luxureat.cn/", "value": 64},
+    {"label": "luxureat.cn/product/", "value": 31},
+    {"label": "luxureat.cn/product/?category", "value": 17},
+    {"label": "luxureat.cn/brand/", "value": 17},
+    {"label": "luxureat.cn/import-export-services/", "value": 14}
   ],
-  "notice": "Dati aggiornati il 6 novembre 2026 alle 15:01 (ora italiana), sulla base delle schermate del monitor WordPress. PV indica le visualizzazioni di pagina, non i visitatori unici. I valori orari di oggi sono stimati dal grafico e non rappresentano dati orari verificati. Il totale mensile e le fonti di traffico non sono disponibili. Gli zeri delle settimane precedenti non sono verificati. Gli indirizzi IP non vengono pubblicati."
+  "notice": "Dati aggiornati il 13 novembre 2026 alle 16:55 (ora italiana), sulla base delle schermate del monitor WordPress. PV indica le visualizzazioni di pagina, non i visitatori unici. I valori orari sono stimati dal grafico e possono differire dai totali ufficiali. Il totale mensile e le fonti di traffico non sono disponibili. Gli zeri delle settimane precedenti non sono verificati. La classifica delle pagine comprende solo le prime cinque posizioni visibili nello screenshot. Gli indirizzi IP non vengono pubblicati."
 }
