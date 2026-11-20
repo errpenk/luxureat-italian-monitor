@@ -1,8 +1,6 @@
 name: Update Italian monitor data
 
 on:
-  schedule:
-    - cron: '15 2 * * *'
   workflow_dispatch:
 
 permissions:
