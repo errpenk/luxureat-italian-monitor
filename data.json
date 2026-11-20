@@ -4,7 +4,9 @@
     "todayPv": 93,
     "yesterdayPv": 340,
     "weekPv": 689,
-    "monthPv": null
+    "monthPv": 1779,
+    "monthPvEstimated": true,
+    "monthPvEstimateNote": "Stima: 1.070 PV cumulativi fino al 13/11/2026 (istantanea precedente) + 709 PV nei CSV del 14–20/11/2026. Esclusa la riga del 21/11. Possibili differenze fra istantanee."
   },
   "daily": [
     {
