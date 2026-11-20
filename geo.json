@@ -1,51 +1,65 @@
-
 [
   {
     "region": "China",
     "iso3": "CHN",
-    "records": 19,
-    "pageviews": 39
+    "records": 313,
+    "pageviews": 321,
+    "newVisitors": 272
   },
   {
     "region": "Italy",
     "iso3": "ITA",
-    "records": 18,
-    "pageviews": 268
-  },
-  {
-    "region": "Unknown",
-    "iso3": null,
-    "records": 15,
-    "pageviews": 18
+    "records": 35,
+    "pageviews": 360,
+    "newVisitors": 14
   },
   {
     "region": "United States",
     "iso3": "USA",
-    "records": 14,
-    "pageviews": 20
+    "records": 19,
+    "pageviews": 19,
+    "newVisitors": 19
   },
   {
     "region": "Thailand",
     "iso3": "THA",
     "records": 2,
-    "pageviews": 3
+    "pageviews": 4,
+    "newVisitors": 2
   },
   {
-    "region": "Germany",
-    "iso3": "DEU",
+    "region": "Finland",
+    "iso3": "FIN",
     "records": 1,
-    "pageviews": 1
+    "pageviews": 1,
+    "newVisitors": 1
   },
   {
-    "region": "Malaysia",
-    "iso3": "MYS",
+    "region": "France",
+    "iso3": "FRA",
     "records": 1,
-    "pageviews": 1
+    "pageviews": 1,
+    "newVisitors": 1
+  },
+  {
+    "region": "India",
+    "iso3": "IND",
+    "records": 1,
+    "pageviews": 2,
+    "newVisitors": 1
+  },
+  {
+    "region": "Singapore",
+    "iso3": "SGP",
+    "records": 1,
+    "pageviews": 1,
+    "newVisitors": 1
   },
   {
     "region": "Taiwan",
     "iso3": "TWN",
     "records": 1,
-    "pageviews": 1
+    "pageviews": 1,
+    "newVisitors": 1
   }
 ]
