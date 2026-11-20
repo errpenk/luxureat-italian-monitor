@@ -10,6 +10,8 @@ Il dashboard legge i dati da `data.json`. La configurazione GitHub Actions `.git
 
 I dati possono anche essere inseriti manualmente modificando `data.json`. L'istantanea del 20 novembre 2026 (17:40, fuso italiano) deriva da tre schermate del pannello delle statistiche: andamento giornaliero, andamento settimanale e top 5 delle pagine più visitate. Il PV mensile non era presente nelle schermate e resta `null` fino a quando non sarà disponibile un dato verificato.
 
+Per il confronto settimanale, i dati di **Settimana scorsa** (375 PV) e **Due settimane fa** (695 PV) sono stati ripresi dalla versione precedente di `data.json` del 13 novembre 2026, anziché dai valori delle schermate del 20 novembre. Si tratta di dati storici disponibili alla data del rilevamento, non di una conferma dei totali finali della settimana.
+
 La scheda del dashboard consente inoltre di inviare manualmente un collegamento tramite il pulsante SUBMIT. Questo è separato dal workflow GitHub Actions. Eventuali processi esterni all'archivio non sono gestiti dalla configurazione GitHub Actions.
 
 ## Struttura dei dati
