@@ -228,11 +228,11 @@
       "values": [
         0,
         0,
+        125,
+        216,
+        34,
         0,
-        0,
-        0,
-        15,
-        6
+        0
       ]
     },
     {
@@ -249,10 +249,10 @@
       ],
       "values": [
         0,
-        0,
-        0,
-        0,
-        0,
+        24,
+        82,
+        448,
+        141,
         0,
         0
       ]
@@ -285,5 +285,6 @@
       "value": 20,
       "sharePct": 7.81
     }
-  ]
+  ],
+  "weeklyDataNote": "Serie 'Settimana scorsa' e 'Due settimane fa' riportate dall'archivio aggiornato al 13/11/2026 (istantanea parziale della settimana); non rappresentano necessariamente i totali settimanali definitivi."
 }
