@@ -4,21 +4,24 @@ Dashboard separata in italiano per i dati del monitor SEO WordPress.
 
 La password `cina` è solo un filtro lato browser: GitHub Pages non offre una protezione reale per una pagina statica. Non pubblicare dati personali o IP in `data.json` senza aggiungere un backend con autenticazione.
 
-## Sincronizzazione giornaliera
+## Aggiornamento manuale (senza push automatici programmati)
 
-Il pannello BaiduSEO usa richieste amministrative WordPress con nonce e sessione. Per sincronizzare in modo sicuro serve uno di questi due collegamenti:
+Il dashboard legge i dati da `data.json`. La configurazione GitHub Actions `.github/workflows/update-data.yml` **non ha alcun trigger `schedule`**: è avviabile soltanto manualmente tramite `workflow_dispatch` e, quando avviata, legge l'endpoint configurato nei Secrets e aggiorna `data.json`.
 
-1. un endpoint WordPress read-only protetto da token che restituisca il JSON normalizzato;
-2. un workflow GitHub Actions con credenziali WordPress conservate nei Secrets GitHub, senza inserirle nel codice.
+I dati possono anche essere inseriti manualmente modificando `data.json`. L'istantanea del 20 novembre 2026 (17:40, fuso italiano) deriva da tre schermate del pannello delle statistiche: andamento giornaliero, andamento settimanale e top 5 delle pagine più visitate. Il PV mensile non era presente nelle schermate e resta `null` fino a quando non sarà disponibile un dato verificato.
 
-Il sito è già predisposto per leggere `data.json`; la struttura prevista è:
+La scheda del dashboard consente inoltre di inviare manualmente un collegamento tramite il pulsante SUBMIT. Questo è separato dal workflow GitHub Actions. Eventuali processi esterni all'archivio non sono gestiti dalla configurazione GitHub Actions.
+
+## Struttura dei dati
 
 ```json
 {
-  "updatedAt": "2026-11-05T00:00:00Z",
-  "summary": {"todayPv": 0, "yesterdayPv": 0, "weekPv": 0, "monthPv": 0},
-  "daily": [{"date": "2026-11-05", "pv": 0}],
-  "sources": [{"label": "Google", "value": 0}],
-  "pages": [{"label": "/it/", "value": 0}]
+  "updatedAt": "2026-11-20T16:40:46Z",
+  "summary": {"todayPv": 93, "yesterdayPv": 340, "weekPv": 689, "monthPv": null},
+  "daily": [{"date": "Oggi", "pv": 93}],
+  "dailySeries": [{"label": "Oggi", "labels": ["00", "01"], "values": [17, 0]}],
+  "weeklySeries": [{"label": "Questa settimana", "labels": ["1", "2"], "values": [46, 18]}],
+  "sources": [],
+  "pages": [{"label": "luxureat.cn/", "value": 83, "sharePct": 32.42}]
 }
 ```
