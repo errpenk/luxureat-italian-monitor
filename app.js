@@ -23,7 +23,9 @@ function render(data) {
   setMetric('today-pv', data.summary?.todayPv);
   setMetric('yesterday-pv', data.summary?.yesterdayPv);
   setMetric('week-pv', data.summary?.weekPv);
-  setMetric('month-pv', data.summary?.monthPv);
+  const monthPv = data.summary?.monthPv;
+  setMetric('month-pv', monthPv == null ? null : `${data.summary?.monthPvEstimated ? '≈ ' : ''}${Number(monthPv).toLocaleString('it-IT')}`);
+  $('month-pv').title = data.summary?.monthPvEstimateNote || '';
   renderRanked('pages', data.pages);
   renderLineChart('daily-chart', data.dailySeries, '24 ore');
   renderLineChart('weekly-chart', data.weeklySeries, '7 giorni');
