@@ -13,7 +13,9 @@ function renderRanked(id, rows) {
   const list = $(id);
   list.replaceChildren(...(rows?.length ? rows : [{label: 'Nessun dato disponibile.', value: ''}]).map((row) => {
     const item = document.createElement('li');
-    item.textContent = row.value ? `${row.label} — ${row.value}` : row.label;
+    item.textContent = row.value !== '' && row.value != null
+      ? `${row.label} — ${row.value} PV${Number.isFinite(row.sharePct) ? ` (${row.sharePct.toFixed(2)}%)` : ''}`
+      : row.label;
     return item;
   }));
 }
